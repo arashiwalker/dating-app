@@ -13,6 +13,7 @@ $("#detailsform").submit(function(event) {
   if (ageInput > 20 && ageInput) {
     $("#match").show();
     $("#name").text(nameInput);
+    $("#unmatch").hide();
     if(signInput === "Virgo" && ageInput <= 35) {
       $("#princessDate1").show();
       $("#princessDate2").hide();
@@ -38,9 +39,14 @@ $("#detailsform").submit(function(event) {
       $("#princessDate3").hide();
     }
   }
-
-
+  else if (ageInput < 20 && ageInput) {
+    $("#unmatch").show();
+    $("#name1").text(nameInput);
+    $("#match").hide();
+    $("#princessDate4").hide();
+    $("#princessDate1").hide();
+    $("#princessDate2").hide();
+    $("#princessDate3").hide();
+  }
   });
-
-
 });
