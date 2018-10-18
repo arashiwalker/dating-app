@@ -1,15 +1,10 @@
-$(document).ready(function() {
-$("#detailsform").submit(function(event) {
-  event.preventDefault();
-  var nameInput = $("input#addName").val();
-  console.log(nameInput);
-  var signInput = $("select#addSign").val();
-  console.log(signInput);
-  var ageInput = parseInt($("input#addAge").val());
-  console.log(ageInput);
 
-  event.preventDefault();
+//backend
+var nameInput;
+var signInput;
+var ageInput;
 
+function choose(){
   if (ageInput > 20 && ageInput) {
     $("#match").show();
     $("#name").text(nameInput);
@@ -48,5 +43,22 @@ $("#detailsform").submit(function(event) {
     $("#princessDate2").hide();
     $("#princessDate3").hide();
   }
+
+}
+
+//front-end
+$(document).ready(function() {
+$("#detailsform").submit(function(event) {
+  event.preventDefault();
+  nameInput = $("input#addName").val();
+  console.log(nameInput);
+  signInput = $("select#addSign").val();
+  console.log(signInput);
+  ageInput = parseInt($("input#addAge").val());
+  console.log(ageInput);
+
+  event.preventDefault();
+
+  choose(nameInput, signInput, ageInput);
   });
 });
